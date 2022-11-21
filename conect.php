@@ -2,15 +2,19 @@
 class SQLConexion{
     public $conexion;
     private $server='localhost'; // Nombre del serviodr
-    private $usuario='utnc_conecta'; // Usuario del servidor
-    private $clave='1dF=[9+%mku['; // Contraseña
-    private $bd='utnc_conecta'; // Nombre de la base de datos
+    private $usuario='root'; // Usuario del servidor
+    private $clave=''; // Contraseña
+    private $bd='conecta'; // Nombre de la base de datos
     
     public function conectar(){ // Conectamos a la base de datos
         $this->conexion=@new mysqli($this->server,$this->usuario,$this->clave,$this->bd);
-        if ($this->conexion->connect_error) // Si la conexion falla 
-            die('Error de Conexion :(');
-        else
+        if ($this->conexion->connect_error){ // Si la conexion falla 
+            $response_array['status'] = 'error';
+            $response_array['msg'] = "Conección denegada, contacta al centro de soporte para más información";
+            header('Content-type: application/json');
+            echo '<script>console.log(JSON.parse(`'.json_encode($response_array).'`))</script>';
+            exit;
+        }else
             $this->conexion->set_charset("utf8mb4");
     }
 
