@@ -29,5 +29,5 @@ if($data){
     
     
     header('Content-type: application/json');
-    echo '<script>console.log(JSON.parse(`'.json_encode($response_array).'`))</script>';
+    echo json_encode($response_array);
 }

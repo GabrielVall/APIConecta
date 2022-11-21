@@ -12,7 +12,7 @@ class SQLConexion{
             $response_array['status'] = 'error';
             $response_array['msg'] = "Conección denegada, contacta al centro de soporte para más información";
             header('Content-type: application/json');
-            echo '<script>console.log(JSON.parse(`'.json_encode($response_array).'`))</script>';
+            echo json_encode($response_array);
             exit;
         }else
             $this->conexion->set_charset("utf8mb4");
