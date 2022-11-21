@@ -1,0 +1,18 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .? - [END]
+
+
+RewriteRule (.*) index.php?r=$1 [NC]
+RewriteRule (.*) index.php?r=$1&s=$2 [L]
+RewriteRule (.*) index.php?r=$1&id=$2 [L]
+RewriteRule (.*) index.php?r=$1&id=$2&s=$3 [L]
+RewriteCond %{HTTP_HOST} ^www\.example\.com [NC]
+RewriteRule ^(.*)$ http://example.com/ [L,R=301]
+
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
