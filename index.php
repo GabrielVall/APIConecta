@@ -1,6 +1,5 @@
 <?php
 $response_array = array();
-include_once("conect.php");
 include_once('funciones.php');
 $data = hacerDatosUrl($_SERVER['REQUEST_URI']);
 if($data){
@@ -13,6 +12,7 @@ if($data){
         $temperatura = $data['temperatura'];
         $humedad = $data['humedad'];
         $presion = $data['presion'];
+        include_once("conect.php");
         $sql = new SQLConexion();
         $row = $sql->updateData("
         INSERT INTO datos_sensor (equipo,temperatura,humedad,presion,fecha_hora) 
