@@ -2,12 +2,12 @@
 $response_array = array();
 include_once('funciones.php');
 if( 0 == 0 ){
-    $equipo = $_POST['equipo'];
-    $dispositivo = $_POST['dispositivo'];
-    $id = $_POST['id'];
+    $equipo = $_GET['equipo'];
+    $dispositivo = $_GET['dispositivo'];
+    $id = $_GET['id'];
     $temperatura = $data['temperatura'];
-    $humedad = $_POST['humedad'];
-    $presion = $_POST['presion'];
+    $humedad = $_GET['humedad'];
+    $presion = $_GET['presion'];
     include_once("conect.php");
     $sql = new SQLConexion();
     $row = $sql->updateData("
