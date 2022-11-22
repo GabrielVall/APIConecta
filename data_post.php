@@ -5,7 +5,7 @@ if( 0 == 0 ){
     $equipo = $_GET['equipo'];
     $dispositivo = $_GET['dispositivo'];
     $id = $_GET['id'];
-    $temperatura = $data['temperatura'];
+    $temperatura = $_GET['temperatura'];
     $humedad = $_GET['humedad'];
     $presion = $_GET['presion'];
     include_once("conect.php");
