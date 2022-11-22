@@ -1,7 +1,7 @@
 <?php
 $response_array = array();
 include_once('funciones.php');
-if( $_POST['equipo'] && $_POST['dispositivo'] && $_POST['id'] && $_POST['temperatura'] && $_POST['humedad'] && $_POST['presion'] ){
+if( isset($_POST['equipo']) && isset($_POST['dispositivo']) && isset($_POST['id']) && isset($_POST['temperatura']) && isset($_POST['humedad']) && isset($_POST['presion']) ){
     $equipo = $_POST['equipo'];
     $dispositivo = $_POST['dispositivo'];
     $id = $_POST['id'];
